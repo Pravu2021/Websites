@@ -108,6 +108,76 @@ h4 {
   padding: 4.2rem 0 2rem;
 }
 
+.banner-slider {
+  padding: 2rem 0 1rem;
+}
+
+.slides {
+  position: relative;
+  min-height: 260px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(20px) scale(0.985);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  background: linear-gradient(130deg, #ffffff, #f2ebff 48%, #fff3ea);
+  border: 1px solid #e8dcfb;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.slide.is-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.slide-kicker {
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.slide h2 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.3rem, 2.6vw, 2.05rem);
+}
+
+.slide p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.slide-controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.dot {
+  width: 0.68rem;
+  height: 0.68rem;
+  border-radius: 999px;
+  border: 0;
+  background: #cfbfef;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.dot.is-active {
+  background: var(--primary);
+  transform: scale(1.2);
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -395,6 +465,10 @@ textarea:focus {
     border: 1px solid #d7caef;
     background: #fff;
   }
+
+  .slides {
+    min-height: 310px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -410,5 +484,13 @@ textarea:focus {
 
   .hero {
     padding-top: 3rem;
+  }
+
+  .slide {
+    padding: 1.3rem;
+  }
+
+  .slides {
+    min-height: 330px;
   }
 }
